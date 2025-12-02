@@ -2,7 +2,8 @@ openai
 google-genai
 
 python-dotenv
-
 pydantic
-
 pandas
+
+langchain-google-genai
+langchain-openai
