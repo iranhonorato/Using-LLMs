@@ -9,3 +9,6 @@ langchain
 langchain-google-genai
 langchain-openai
 langchain-ollama
+langchain-tavily
+
+tavily-python
