@@ -13,9 +13,12 @@ from langchain_core.messages import HumanMessage
 
 from langchain_openai import ChatOpenAI
 
+
+# -----------------------------------------------------------------------------------------------------------------
 # Biblioteca para buscas na web 
 from tavily import TavilyClient
 tavily = TavilyClient()
+
 
 
 @tool 
@@ -34,10 +37,13 @@ def search(query:str) -> str:
 
     return tavily.search(query=query)
 
+#------------------------------------------------------------------------------------------------------------------
 
+# Uma alternativa a esse bloco de código logo acima é utilizar a biblioteca langchain_tavily
+from langchain_tavily import TavilySearch
 
 llm = ChatOpenAI(temperature=0.5, model="gpt-4.1-mini")
-tools_list = [search]
+tools_list = [TavilySearch()]
 agent = create_agent(model=llm, tools=tools_list)
 
 
@@ -45,8 +51,10 @@ agent = create_agent(model=llm, tools=tools_list)
 def main():
     print("Inicializando agente")
     result = agent.invoke({"messages":HumanMessage(content="Procure vagas na área de Quantitativ Finance/Research na região de São Paulo")})
-    print(result.results)
+    print(result)
+    return result["messages"][-1].content
 
 
 if __name__ == "__main__":
-    main()
+    output = main()
+    print(output)
