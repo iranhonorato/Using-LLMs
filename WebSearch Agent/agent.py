@@ -14,12 +14,10 @@ from langchain_core.messages import HumanMessage
 from langchain_openai import ChatOpenAI
 
 
-# -----------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------- Tool-augmented LLM -----------------------------------------------------------
 # Biblioteca para buscas na web 
 from tavily import TavilyClient
 tavily = TavilyClient()
-
-
 
 @tool 
 def search(query:str) -> str:
@@ -39,12 +37,15 @@ def search(query:str) -> str:
 
 #------------------------------------------------------------------------------------------------------------------
 
-# Uma alternativa a esse bloco de código logo acima é utilizar a biblioteca langchain_tavily
+
+
+
+#------------------------------------ ReAct Agent (Reason + Act) --------------------------------------------------
 from langchain_tavily import TavilySearch
 
 llm = ChatOpenAI(temperature=0.5, model="gpt-4.1-mini")
 tools_list = [TavilySearch()]
-agent = create_agent(model=llm, tools=tools_list)
+agent = create_agent(model=llm, tools=tools_list) # Agente tem acesso a tools, logo possui capacidade de chamar tools dinamicamente
 
 
 
