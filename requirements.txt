@@ -1,14 +1,26 @@
+# LLM's SDK
 openai
 google-genai
 
+# Structured output
 python-dotenv
 pydantic
+
+# Data science
 pandas
 
+# Langchain Basics
 langchain
 langchain-google-genai
 langchain-openai
 langchain-ollama
-langchain-tavily
 
+# Web-search agent
+langchain-tavily
 tavily-python
+
+
+# ReAct Agents
+langchain-core 
+langchain-community 
+
