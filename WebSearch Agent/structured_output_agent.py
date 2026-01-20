@@ -23,17 +23,12 @@ class AgentResponse(BaseModel):
 llm = ChatOpenAI(temperature=0.5, model="gpt-4.1-mini")
 tools_list = [TavilySearch()]
 
-# O agente (que contém o LLM e a lista de tools, aqui TavilySearch) decide se precisa chamar ferramentas:
-# Se necessário, ele chama TavilySearch() para buscar na web (o tool devolve resultados).
-agent = create_agent(model=llm, tools=tools_list, response_format=AgentResponse)
-# O agente recebe os resultados das ferramentas e constrói um prompt para o LLM que inclui:
-# - O que o humano pediu.
-# - Os resultados das ferramentas (resumos ou URLs).
 # - Instruções de formato: "Retorne um JSON que satisfaça o schema AgentResponse" (isto é automaticamente gerado pelo response_format).
+agent = create_agent(model=llm, tools=tools_list, response_format=AgentResponse)
 
 def main():
     print("Inicializando agente")
-    
+
     #  A saída de agent.invoke() geralmente é um dicionário (ou objeto complexo) contendo várias chaves
     result = agent.invoke(
         {
