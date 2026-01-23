@@ -1,29 +1,35 @@
 # LLM's SDK
-openai
-google-genai
+openai==2.15.0
+google-genai==1.60.0
 
-# Structured output
-python-dotenv
-pydantic
+# Utilities 
+python-dotenv==1.2.1
+pydantic==2.12.5
+tqdm==4.67.1
 
 # Data science
-pandas
+pandas==3.0.0
 
 # Langchain Basics
-langchain
-langchain-google-genai
-langchain-openai
-langchain-ollama
+langchain==1.2.7
+langchain-google-genai==4.2.0
+langchain-openai==1.1.7
+langchain-ollama==1.0.1
 
 # Web-search agent
-langchain-tavily
-tavily-python
-
+langchain-tavily==0.2.17
+tavily-python==0.7.19
 
 # ReAct Agents
-langchain-core 
-langchain-community 
+langchain-core==1.2.7
+langchain-community==0.4.1
 
 # Vector database 
-langchain-pinecone
+langchain-pinecone==0.2.13
+pinecone-client>=3.0.0
 
+# Extração de textos
+pdfplumber>=0.10.0
+
+# Chunking correto e controle de tokens
+tiktoken==0.12.0
