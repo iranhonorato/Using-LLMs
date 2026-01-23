@@ -24,3 +24,6 @@ tavily-python
 langchain-core 
 langchain-community 
 
+# Vector database 
+langchain-pinecone
+
